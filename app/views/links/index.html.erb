@@ -1,0 +1,10 @@
+<% @links.each do |links| %>
+  <div class="link">
+    <h3><%= link.title %></h3>
+    <p>
+      <br>
+      <%= link_to 'Show', link %> | 
+      <%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+  </div>
+<% end %>
