@@ -1,2 +1,13 @@
-<h1>Links#show</h1>
-<p>Find me in app/views/links/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <%= @link.title %>
+</h2>
+
+<%= raw @link.url %><br>
+<%= link_to "localhost:3000/#{@link.shortened_link}", @link.url %>
+
+<hr>
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>

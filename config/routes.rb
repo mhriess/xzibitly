@@ -1,9 +1,11 @@
 Xzibitly::Application.routes.draw do
-  
-  root to: "links#index"
-  
+
+  root to: "links#new"
+
   resources :links
-  
+
+  match ':shortened_link' => 'links#go'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
