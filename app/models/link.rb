@@ -7,10 +7,7 @@ class Link < ActiveRecord::Base
   validates :url,
     :presence => true,
     :format => { :with => /(http:\/\/|https:\/\/).+/}
-  validates :shortened_link,
-    :presence => true,
-    :uniqueness => true
-
+    
   private
 
   def shorten
@@ -18,6 +15,7 @@ class Link < ActiveRecord::Base
       self.shortened_link = link_hash
     else
       self.shortened_link = self.vanity_link
+      self.shortened_link = ""
     end
   end
 
