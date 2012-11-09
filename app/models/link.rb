@@ -14,10 +14,10 @@ class Link < ActiveRecord::Base
   private
 
   def shorten
-    if :vanity_link
-      self.shortened_link = self.vanity_link
-    else
+    if self.vanity_link.empty?
       self.shortened_link = link_hash
+    else
+      self.shortened_link = self.vanity_link
     end
   end
 
