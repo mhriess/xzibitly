@@ -1,8 +1,13 @@
 Xzibitly::Application.routes.draw do
 
   root to: "links#new"
+  
+  get "log_in" => "sessions#new", as: "log_in"
+  get "sign_up" => "users#new", as: "sign_up"
 
   resources :links
+  resources :users
+  resources :sessions
 
   match ':shortened_link' => 'links#go'
 

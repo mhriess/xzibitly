@@ -31,7 +31,6 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(params[:link])
-    # @link.shorten
 
     respond_to do |format|
       if @link.save
