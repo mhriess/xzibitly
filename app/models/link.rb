@@ -1,5 +1,5 @@
 class Link < ActiveRecord::Base
-  attr_accessible :title, :url, :shortened_link, :counter, :vanity_link
+  attr_accessible :title, :url, :shortened_link, :counter, :vanity_link, :user_id
   before_validation :shorten
 
   validates :title,
@@ -7,7 +7,7 @@ class Link < ActiveRecord::Base
   validates :url,
     :presence => true,
     :format => { :with => /(http:\/\/|https:\/\/).+/}
-    
+
   private
 
   def shorten

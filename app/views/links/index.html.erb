@@ -1,7 +1,22 @@
+<p>Private Links</p>
+<% current_user.links.each do |link| %>
+
+  <div class="link">
+    <p><%= link.title %> | <%= link.url %> | <%= link.shortened_link %> | clicks: <%= link.counter %></p>
+    <p>
+      <%= link_to 'Show', link %> |
+      <%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+    <hr>
+  </div>
+<% end %>
+
+<p>Public Links</p>
+
 <% @links.each do |link| %>
 
   <div class="link">
-    <p><%= link.title %> | <%= link.url %> | <%= link.shortened_link%> clicks: <%= link.counter %></p>
+    <p><%= link.title %> | <%= link.url %> | <%= link.shortened_link %> | clicks: <%= link.counter %></p>
     <p>
       <%= link_to 'Show', link %> |
       <%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %>

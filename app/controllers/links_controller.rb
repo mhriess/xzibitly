@@ -1,4 +1,4 @@
-class LinksController < ApplicationController
+  class LinksController < ApplicationController
   def index
     @links = Link.all
 
@@ -30,7 +30,12 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = Link.new(params[:link])
+    if current_user
+      @user = User.find(current_user.id)
+      @link = @user.links.build(params[:link])
+    else
+      @link = Link.new(params[:link])
+    end
 
     respond_to do |format|
       if @link.save
